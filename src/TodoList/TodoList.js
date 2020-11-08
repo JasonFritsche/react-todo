@@ -4,16 +4,17 @@ import Input from "./Input/Input";
 import ListItem from "./TodoListItem/TodoListItem";
 
 const TodoListContainer = styled.div`
+	flex-wrap: wrap;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	flex-direction: row;
+	margin: 0;
+	justify-content: center;
 `;
 
-const TodoListItemsContainer = styled.div`
+const TodoListItemsContainer = styled.ul`
 	margin: 1em 0;
 	display: flex;
 	flex-direction: column;
-	width: 50vw;
 `;
 
 export default class TodoList extends Component {
@@ -52,6 +53,8 @@ export default class TodoList extends Component {
 			<TodoListContainer>
 				<h1>this is the list</h1>
 				<Input
+					inputType='list'
+					centerInput={true}
 					inputValue={this.state.inputValue}
 					inputValueChange={(e) => this.inputValueChange(e)}
 					updateValue={() => this.updateListItems()}
