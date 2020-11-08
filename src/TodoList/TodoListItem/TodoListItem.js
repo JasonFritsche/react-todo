@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Edit, Close } from "@styled-icons/material";
 import Input from "../Input/Input";
 
 const TodoListItemContainer = styled.div`
@@ -7,11 +8,31 @@ const TodoListItemContainer = styled.div`
 	flex-direction: row;
 	align-items: center;
 	border: 1px solid rgb(207, 207, 207);
-	margin: 0.24em 0;
 	padding: 0 0.66em;
+	width: 33vw;
+	height: 2.8em;
+	margin-bottom: 0.3em;
+`;
+
+const EditTodoItem = styled(Edit)`
+	color: #ff7700;
+	&:hover {
+		cursor: pointer;
+		color: #ffaa00;
+	}
+`;
+
+const DeleteTodoItem = styled(Close)`
+	color: #a80011;
+	&:hover {
+		cursor: pointer;
+		color: #30214f;
+	}
 `;
 
 const TodoListItemActions = styled.div`
+	display: flex;
+	flex-direction: row;
 	margin-left: auto;
 `;
 
@@ -40,16 +61,18 @@ const TodoListItem = (props) => {
 		<TodoListItemContainer>
 			{showEditItem ? (
 				<Input
+					inputType='listItem'
 					inputValue={editedItem}
 					inputValueChange={editTodoListItem}
 					updateValue={updateEditedItem}
+					buttonText='Save Changes'
 				/>
 			) : (
 				<p>{item}</p>
 			)}
 			<TodoListItemActions>
-				<button onClick={editItem}>Edit</button>
-				<button onClick={deleteItem}>Delete</button>
+				<EditTodoItem size='24' onClick={editItem} />
+				<DeleteTodoItem size='24' onClick={deleteItem} />
 			</TodoListItemActions>
 		</TodoListItemContainer>
 	);
