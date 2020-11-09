@@ -3,7 +3,7 @@ import styled from "styled-components";
 const TodoListInput = styled.div`
 	display: flex;
 	flex-direction: row;
-	width: 100%;
+
 	justify-content: ${(props) =>
 		props.inputType === "list" ? "center" : "start"};
 `;
@@ -11,6 +11,7 @@ const TodoListInput = styled.div`
 const TodoInput = styled.input`
 	height: 2em;
 	border: none;
+	width: 16em;
 	border-bottom: 1px solid #4d4d4d;
 	&:focus {
 		outline: none;
@@ -26,6 +27,7 @@ const Button = styled.button`
 	margin: 0 0.7em;
 	padding: 0.25em 1em;
 	height: 2.25em;
+	width: 9.5em;
 	&:hover {
 		cursor: pointer;
 		background: #0352fc;
